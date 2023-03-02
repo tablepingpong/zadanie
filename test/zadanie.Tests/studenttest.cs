@@ -10,14 +10,17 @@ namespace zadanie.Tests
         public void Test1()
         {
             var emp = new Student("Sylwia");
-            emp.AddGrade(59.5);
-            emp.AddGrade(45.4);
-            emp.AddGrade(60.7);
-            emp.AddGrade(62.6);
-            emp.AddGrade(78.5);
-            emp.AddGrade(50.7);
-            emp.AddGrade(63.7);
-            emp.AddGrade(64.8);
+            emp.AddGrade(5);
+            emp.AddGrade(4);
+            emp.AddGrade(3);
+
+
+            var result = emp.GetStatistics();
+
+            Assert.Equal(4, result.Average);
+            Assert.Equal(5, result.High, 1);
+            Assert.Equal(3, result.Low, 1);
         }
+
     }
 }

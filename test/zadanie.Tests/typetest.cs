@@ -56,7 +56,7 @@ namespace Zadanie.Tests
         {
             var zawodnik1 = GetStudent("zawodnik 1");
             GetStudentSetName(out zawodnik1, "New zawodnik");
-            Assert.Equal("New zawodnik", zawodnik1.Name);
+            Assert.Equal("New zawodnik", zawodnik1.name);
 
         }
         private void GetStudentSetName(out Student zawodnik1, string name)
@@ -69,7 +69,7 @@ namespace Zadanie.Tests
         {
             var zawodnik1 = GetStudent("Adam");
             this.SetName(zawodnik1, "NewName");
-            Assert.Equal("NewName", zawodnik1.Name);
+            Assert.Equal("NewName", zawodnik1.name);
         }
         private Student GetStudent(string name)
         {
@@ -78,7 +78,7 @@ namespace Zadanie.Tests
 
         private void SetName(Student student, string name)
         {
-            student.Name = name;
+            student.name = name;
         }
     }
 }

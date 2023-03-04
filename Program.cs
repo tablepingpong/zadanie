@@ -20,28 +20,28 @@ namespace zadanieApp
 
                 switch (input)
                 {
-                    case "w":
+                    case "w" or "W":
                         AddGradeToMemory();
                         break;
 
-                    case "x":
+                    case "x" or "X":
                         AddGradeToFile();
                         break;
 
-                    case "y":
+                    case "y" or "Y":
                         closeApp = true;
                         break;
                 }
             }
         }
 
-        private static void EnterGrade(IStudent studenttext)
+        private static void EnterGrade(IStudent student)
         {
             while (true)
             {
                 try
                 {
-                    Console.WriteLine($"Hello Enter grade for {studenttext.Name}");
+                    Console.WriteLine($"Hello Enter grade for {student.name}");
                     var input = Console.ReadLine();
 
                     if (input == ("q"))
@@ -50,13 +50,12 @@ namespace zadanieApp
                     }
                     else
                     {
-                        var grade = double.Parse(input);
-                        studenttext.AddGrade(grade);
+                        student.AddGrade(input);
                     }
                 }
                 catch (FormatException)
                 {
-                    Console.WriteLine("Ocena jest spoza zakresu");
+                    Console.WriteLine("Grade is out of range");
                 }
 
                 catch (ArgumentException ex)
@@ -64,11 +63,7 @@ namespace zadanieApp
                     Console.WriteLine(ex.Message);
                 }
 
-                var stats = studenttext.GetStatistics();
-                Console.WriteLine($"High: {stats.High}");
-                Console.WriteLine($"Low: {stats.Low}");
-                Console.WriteLine($"Average: {stats.Average}");
-                Console.WriteLine($"Letter: {stats.Letter}");
+                var stats = student.GetStatistics();
             }
         }
 
@@ -81,20 +76,27 @@ namespace zadanieApp
         {
             Console.WriteLine("Grade is seved in file");
         }
+        static void OnGradeAdded3(object sender, EventArgs args)
+        {
+            Console.WriteLine("Grade is out of range ");
+        }
 
         private static void AddGradeToMemory()
         {
-            var Memory = new Student("Sylwia");
-            Memory.GradeAdded += OnGradeAdded;
-            EnterGrade(Memory);
+            var memory = new Student("Sylwia");
+            memory.GradeAdded += OnGradeAdded;
+            memory.GradeAdded1 += OnGradeAdded3;
+            EnterGrade(memory);
+            memory.ShowStatistics();
         }
 
         private static void AddGradeToFile()
         {
-            var File = new StudentText("Sylwia");
-            File.GradeAdded += OnGradeAdded1;
-            EnterGrade(File);
-            File.GetStatistics();
+            var file = new StudentText("Sylwia");
+            file.GradeAdded += OnGradeAdded1;
+            file.GradeAdded1 += OnGradeAdded3;
+            EnterGrade(file);
+            file.ShowStatistics();
         }
     }
 }

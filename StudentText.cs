@@ -2,26 +2,27 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using static zadanieApp.Student;
 
 namespace zadanieApp
 {
-    public class StudentText : StudentBase, IStudent
+    public class StudentText : StudentBase
     {
         public const string FileName = "Sylwia";
 
         public const string audit = "audit.txt";
 
         public override event GradeAddedDelegate GradeAdded;
+        public override event GradeAddedDelegate GradeAdded1;
 
-        public StudentText(string Name) : base(Name)
+        public StudentText(string name) : base(name)
         {
         }
-        // public List<double> grades = new List<double>();
 
         public override void AddGrade(double grade)
         {
-            if (grade > 0 && grade <= 100)
+            if (grade > 0 && grade <= 6)
             {
                 using (var writer = File.AppendText($"{FileName}.txt"))
                 {
@@ -34,34 +35,34 @@ namespace zadanieApp
             }
             else
             {
-                GradeAdded(this, new EventArgs());
+                GradeAdded1(this, new EventArgs());
             }
         }
-            
-        public override void AddGrade(string ocena)
+
+         public override void AddGrade(string grade)
         {
-            var grade = ocena switch
+            var score =  grade switch
             {
-                "1+" => 1.5,
-                "2+" => 2.5,
-                "3+" => 3.5,
-                "4+" => 4.5,
-                "5+" => 5.5,
-                "2-" => 1.75,
-                "3-" => 2.75,
-                "4-" => 3.75,
-                "5-" => 4.75,
-                "6-" => 5.75,
-                string => double.Parse(ocena),
+                "1+" or "+1" => 1.5,
+                "2+" or "+2" => 2.5,
+                "3+" or "+3"=> 3.5,
+                "4+" or "+4"=> 4.5,
+                "5+" or "+5"=> 5.5,
+                "2-" or "-2"=> 1.75,
+                "3-" or "-3"=> 2.75,
+                "4-" or "-4"=> 3.75,
+                "5-" or "-5"=> 4.75,
+                "6-" or "-6"=> 5.75,
+                string => double.Parse(grade),
             };
-            this.AddGrade(grade);
+            this.AddGrade(score);
         }
 
         public override Statistics GetStatistics()
         {
             var result = new Statistics();
-           
-            
+
+
             if (File.Exists($"{FileName}"))
             {
                 using (var reader = File.OpenText($"{FileName}"))
@@ -76,42 +77,6 @@ namespace zadanieApp
                 }
             }
             return result;
-        }
-
-        public void ChangeName(string newname)
-        {
-            var isDigit = false;
-
-            foreach (var n in newname)
-            {
-                if (char.IsDigit(n))
-                {
-                    isDigit = true;
-                }
-            }
-
-            if (isDigit)
-            {
-                Console.WriteLine($"Characters other than letters were found in the name, new name is {newname}");
-            }
-            else
-            {
-                this.Name = newname;
-                Console.WriteLine($"No characters found in name {newname}");
-            }
-        }
-
-        public string[] imie = new string[] { "Artur", "Kamil", "Julia", "Natalia", "Igor", "Marlena", "Wojtek", "Oskar", "Tymek", "Ignacy" };
-
-        public int[] age = new int[] { 22, 16, 16, 19, 12, 30, 55, 12, 13, 11 };
-
-
-        public void NameAge()
-        {
-            for (var index = 0; index < imie.Length; index++)
-            {
-                Console.WriteLine($" {imie[index]}-{age[index]}");
-            }
         }
     }
 }

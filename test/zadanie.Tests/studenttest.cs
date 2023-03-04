@@ -21,6 +21,5 @@ namespace zadanie.Tests
             Assert.Equal(5, result.High, 1);
             Assert.Equal(3, result.Low, 1);
         }
-
     }
 }

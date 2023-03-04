@@ -9,9 +9,9 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/src/zadanieApp/bin/Debug/net5.0/zadanieApp.dll",
+            "program": "${workspaceFolder}/bin/Debug/net5.0/zadanieApp.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/src/zadanieApp",
+            "cwd": "${workspaceFolder}",
             "console": "internalConsole",
             "stopAtEntry": false
         },

@@ -41,6 +41,7 @@ namespace Zadanie.Tests
             Assert.NotSame(zawodnik2, zawodnik1);
             Assert.False(Object.ReferenceEquals(zawodnik1, zawodnik2));
         }
+        
         [Fact]
         public void TwowarsCanReferenceSameObject()
         {

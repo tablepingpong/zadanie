@@ -6,32 +6,32 @@ namespace Zadanie.Tests
 {
     public class Typetest
     {
-       public delegate string WriteMessage(string Message);
+        public delegate string WriteMessage(string Message);
 
-       int counter = 0;
-       
-       [Fact]
-       public void WriteMessageDelegateCanPointToMethode()
-       {
-        WriteMessage del = ReturnMessage;
-        del += ReturnMessage;
-        del += ReturnMessage2;
-        var result = del ("Hello");
-        Assert.Equal(3, counter);
-       }
+        int counter = 0;
 
-       string ReturnMessage(string message)
-       {
-        counter++;
-        return message;
-       }
+        [Fact]
+        public void WriteMessageDelegateCanPointToMethode()
+        {
+            WriteMessage del = ReturnMessage;
+            del += ReturnMessage;
+            del += ReturnMessage2;
+            var result = del("Hello");
+            Assert.Equal(3, counter);
+        }
 
-       string ReturnMessage2(string message)
-       {
-        counter++;
-        return message;
-       }
-       
+        string ReturnMessage(string message)
+        {
+            counter++;
+            return message;
+        }
+
+        string ReturnMessage2(string message)
+        {
+            counter++;
+            return message;
+        }
+
         [Fact]
         public void GetStudentReturnsDirrefentsObjects()
         {
@@ -41,6 +41,7 @@ namespace Zadanie.Tests
             Assert.NotSame(player2, player1);
             Assert.False(Object.ReferenceEquals(player1, player2));
         }
+
         [Fact]
         public void TwowarsCanReferenceSameObject()
         {
@@ -54,11 +55,11 @@ namespace Zadanie.Tests
         [Fact]
         public void CsharpCanPassByRef()
         {
-            var player1 = GetStudent("zawodnik 1");
-            GetStudentSetName(out player1, "New zawodnik");
-            Assert.Equal("New zawodnik", player1.name);
-
+            var player1 = GetStudent("Adam");
+            GetStudentSetName(out player1, "NewName");
+            Assert.Equal("NewName", player1.name);
         }
+
         private void GetStudentSetName(out Student player1, string name)
         {
             player1 = new Student(name);
@@ -71,6 +72,7 @@ namespace Zadanie.Tests
             this.SetName(player1, "NewName");
             Assert.Equal("NewName", player1.name);
         }
+
         private Student GetStudent(string name)
         {
             return new Student(name);

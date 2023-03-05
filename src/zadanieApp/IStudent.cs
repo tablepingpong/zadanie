@@ -9,7 +9,7 @@ public interface IStudent
 
     Statistics GetStatistics();
 
-    string name { get; }
+    string name { get; set;}
 
     event GradeAddedDelegate GradeAdded;
 

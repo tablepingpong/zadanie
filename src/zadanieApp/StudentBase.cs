@@ -7,6 +7,7 @@ namespace zadanieApp
     {
         public StudentBase(string name)
         {
+            this.name = name;
         }
 
         public string name {get; set; }
@@ -30,6 +31,7 @@ namespace zadanieApp
                 Console.WriteLine($"Highest grade: {stat.High:N2}");
                 Console.WriteLine($"Lowest grade: {stat.Low:N2}");
                 Console.WriteLine($"Average: {stat.Average:N2}");
+                Console.WriteLine($"Letter: {stat.Letter}");
             }
             else
             {

@@ -19,6 +19,7 @@ namespace Zadanie.Tests
             Assert.Same(player1, player3);
             Assert.True(Object.ReferenceEquals(player1, player3));
         }
+
         private Student GetStudent(string name)
         {
             return new Student(name);

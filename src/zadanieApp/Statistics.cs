@@ -18,14 +18,17 @@ namespace zadanieApp
             {
                 switch (Average)
                 {
-                    case var d when d >= 80.0:
+                    case var d when d >= 5.0:
                         return 'A';
 
-                    case var d when d >= 60.0:
+                    case var d when d >= 4.0:
                         return 'B';
 
-                    case var d when d >= 40.0:
+                    case var d when d >= 3.0:
                         return 'C';
+
+                    case var d when d >= 3.0:
+                        return 'D';
 
                     default:
                         return 'F';

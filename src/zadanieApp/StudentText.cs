@@ -14,6 +14,7 @@ namespace zadanieApp
         public const string audit = "audit.txt";
 
         public override event GradeAddedDelegate GradeAdded;
+
         public override event GradeAddedDelegate GradeAdded1;
 
         public StudentText(string name) : base(name)
@@ -31,7 +32,8 @@ namespace zadanieApp
                 using (var writer2 = File.AppendText($"{audit}.txt"))
                 {
                     writer2.WriteLine($"Ocena:{grade} - Date:{DateTime.UtcNow}");
-                }
+                }  
+                GradeAdded(this, new EventArgs());  
             }
             else
             {
@@ -62,10 +64,9 @@ namespace zadanieApp
         {
             var result = new Statistics();
 
-
-            if (File.Exists($"{FileName}"))
+            if (File.Exists($"{FileName}.txt"))
             {
-                using (var reader = File.OpenText($"{FileName}"))
+                using (var reader = File.OpenText($"{FileName}.txt"))
                 {
                     var line = reader.ReadLine();
                     while (line != null)

@@ -21,9 +21,9 @@ namespace zadanie.Tests
 
             var result = emp.GetStatistics();
 
-            Assert.Equal(4.8, result.Average, 1);
-            Assert.Equal(6.0, result.High, 1);
-            Assert.Equal(3.5, result.Low, 1);
+            Assert.Equal(3.6, result.Average, 1);
+            Assert.Equal(5.0, result.High, 1);
+            Assert.Equal(1.0, result.Low, 1);
         }
     }
 }

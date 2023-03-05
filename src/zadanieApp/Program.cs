@@ -14,7 +14,7 @@ namespace zadanieApp
                 Console.WriteLine(
                     "W - Add student's grades to the program memory and show statistics\n" +
                     "X - Add student's grades to the file and show statistics\n" +
-                    "Y - Close app\n");
+                    "Q - Close app\n");
 
                 var input = Console.ReadLine();
 
@@ -28,7 +28,7 @@ namespace zadanieApp
                         AddGradeToFile();
                         break;
 
-                    case "y" or "Y":
+                    case "q" or "Q":
                         closeApp = true;
                         break;
                 }
@@ -62,8 +62,6 @@ namespace zadanieApp
                 {
                     Console.WriteLine(ex.Message);
                 }
-
-                var stats = student.GetStatistics();
             }
         }
 
@@ -76,6 +74,7 @@ namespace zadanieApp
         {
             Console.WriteLine("Grade is seved in file");
         }
+        
         static void OnGradeAdded3(object sender, EventArgs args)
         {
             Console.WriteLine("Grade is out of range ");

@@ -31,7 +31,7 @@ namespace zadanieApp
                 }
                 using (var writer2 = File.AppendText($"{audit}.txt"))
                 {
-                    writer2.WriteLine($"Ocena:{grade} - Date:{DateTime.UtcNow}");
+                    writer2.WriteLine($"Grade:{grade} - Date:{DateTime.UtcNow}");
                 }  
                 GradeAdded(this, new EventArgs());  
             }

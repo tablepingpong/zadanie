@@ -22,7 +22,7 @@ namespace zadanieApp
 
         public override void AddGrade(double grade)
         {
-            if (grade > 0 && grade <= 6)
+            if (grade >= 1 && grade <= 6)
             {
                 grades.Add(grade);
                 if (GradeAdded != null)

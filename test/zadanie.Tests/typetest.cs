@@ -4,7 +4,7 @@ using zadanieApp;
 
 namespace Zadanie.Tests
 {
-    public class Typetest
+    public class TypeTest
     {
         public delegate string WriteMessage(string Message);
 
@@ -20,16 +20,16 @@ namespace Zadanie.Tests
             Assert.Equal(3, counter);
         }
 
-        string ReturnMessage(string message)
+        string ReturnMessage(string Message)
         {
             counter++;
-            return message;
+            return Message;
         }
 
-        string ReturnMessage2(string message)
+        string ReturnMessage2(string Message)
         {
             counter++;
-            return message;
+            return Message;
         }
 
         [Fact]
@@ -57,12 +57,12 @@ namespace Zadanie.Tests
         {
             var player1 = GetStudent("Adam");
             GetStudentSetName(out player1, "NewName");
-            Assert.Equal("NewName", player1.name);
+            Assert.Equal("NewName", player1.Name);
         }
 
-        private void GetStudentSetName(out Student player1, string name)
+        private void GetStudentSetName(out Student player1, string Name)
         {
-            player1 = new Student(name);
+            player1 = new Student(Name);
         }
 
         [Fact]
@@ -70,17 +70,17 @@ namespace Zadanie.Tests
         {
             var player1 = GetStudent("Adam");
             this.SetName(player1, "NewName");
-            Assert.Equal("NewName", player1.name);
+            Assert.Equal("NewName", player1.Name);
         }
 
-        private Student GetStudent(string name)
+        private Student GetStudent(string Name)
         {
-            return new Student(name);
+            return new Student(Name);
         }
 
-        private void SetName(Student student, string name)
+        private void SetName(Student student, string Name)
         {
-            student.name = name;
+            student.Name = Name;
         }
     }
 }

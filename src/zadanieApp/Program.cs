@@ -41,7 +41,7 @@ namespace zadanieApp
             {
                 try
                 {
-                    Console.WriteLine($"Hello Enter grade for {student.name}");
+                    Console.WriteLine($"Hello Enter grade for {student.Name}");
                     var input = Console.ReadLine();
 
                     if (input == ("q"))

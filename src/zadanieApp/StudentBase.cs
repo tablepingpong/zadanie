@@ -5,12 +5,12 @@ namespace zadanieApp
 {
     public abstract class StudentBase : IStudent
     {
-        public StudentBase(string name)
+        public StudentBase(string Name)
         {
-            this.name = name;
+            this.Name = Name;
         }
 
-        public string name {get; set; }
+        public string Name {get; set; }
 
         public abstract event GradeAddedDelegate GradeAdded;
         
@@ -35,7 +35,7 @@ namespace zadanieApp
             }
             else
             {
-                Console.WriteLine($"Couldn't get statistics for {this.name}");
+                Console.WriteLine($"Couldn't get statistics for {this.Name}");
             }
         }
     }

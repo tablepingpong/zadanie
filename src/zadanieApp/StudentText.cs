@@ -11,7 +11,7 @@ namespace zadanieApp
     {
         public const string FileName = "Sylwia";
 
-        public const string audit = "audit.txt";
+        public const string Audit = "audit.txt";
 
         public override event GradeAddedDelegate GradeAdded;
 
@@ -29,7 +29,7 @@ namespace zadanieApp
                 {
                     writer.WriteLine(grade);
                 }
-                using (var writer2 = File.AppendText($"{audit}"))
+                using (var writer2 = File.AppendText($"{Audit}"))
                 {
                     writer2.WriteLine($"Grade:{grade} - Date:{DateTime.UtcNow}");
                 }

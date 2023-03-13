@@ -4,7 +4,7 @@ using zadanieApp;
 
 namespace zadanie.Tests
 {
-    public class StudentTests
+    public class StatisticTest
     {
         [Fact]
         public void Test1()

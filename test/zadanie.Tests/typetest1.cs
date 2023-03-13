@@ -4,7 +4,7 @@ using zadanieApp;
 
 namespace Zadanie.Tests
 {
-    public class Typetest1
+    public class TypeTest1
     {
         [Fact]
         public void GetStudentReturnsDirrefentsObjects()
@@ -20,9 +20,9 @@ namespace Zadanie.Tests
             Assert.True(Object.ReferenceEquals(player1, player3));
         }
 
-        private Student GetStudent(string name)
+        private Student GetStudent(string Name)
         {
-            return new Student(name);
+            return new Student(Name);
         }
     }
 }

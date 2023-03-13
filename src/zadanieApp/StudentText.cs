@@ -17,7 +17,7 @@ namespace zadanieApp
 
         public override event GradeAddedDelegate GradeAdded1;
 
-        public StudentText(string name) : base(name)
+        public StudentText(string Name) : base(Name)
         {
         }
 

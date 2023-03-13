@@ -7,7 +7,7 @@ namespace zadanie.Tests
     public class StatisticTest
     {
         [Fact]
-        public void Test1()
+        public void StaticTest()
         {
             var emp = new Student("Sylwia");
             emp.AddGrade(5);

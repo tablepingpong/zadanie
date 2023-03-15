@@ -5,9 +5,9 @@ namespace zadanieApp
 {
     public abstract class StudentBase : IStudent
     {
-        public StudentBase(string Name)
+        public StudentBase(string name)
         {
-            this.Name = Name;
+            this.Name = name;
         }
 
         public string Name {get; set; }
